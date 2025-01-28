@@ -1,0 +1,34 @@
+
+.venueC-list{
+    display: flex;
+   
+}
+
+.venueCpage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+  
+  .filters {
+    display: flex;
+    width: 25%;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .filter-group {
+    margin-bottom: 20px;
+  }
+  
+  .venue-list {
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    justify-items: center;
+  }
+ 

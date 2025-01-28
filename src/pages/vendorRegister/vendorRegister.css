@@ -1,0 +1,87 @@
+.V-Main-frame {
+    display: flex;
+    flex-direction: column;
+    width: 90%; 
+    max-width: 700px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    border-radius: 20px;
+    background-color: rgb(191, 195, 197);
+  }
+  
+  .login{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+  }
+  
+  .title {
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  input {
+    width: 100%; 
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 30px;
+    font-family: Poppins, sans-serif;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  
+  input::placeholder {
+    color: #999;
+  }
+  
+  input:focus {
+    border-bottom: 1px solid #222;
+  }
+  
+  input:focus::placeholder {
+    color: #222;
+  }
+  
+  .V-inputs {
+    margin-bottom: 25px;
+    max-width: 400px; 
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .log {
+    display: flex;
+    justify-content: center; /* Center the register button */
+  }
+  
+  .log-button {
+    color: aliceblue;
+    border-radius: 20px;
+    background-color: cadetblue;
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+
+  .log-button:hover{
+    background-color: #222;
+    color: white;
+  }
+  
+  
+  .a-link {
+    text-decoration: none;
+    color: inherit;
+  }
