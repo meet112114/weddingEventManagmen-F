@@ -6,6 +6,7 @@ import Img2 from '../../assets/web-images/3.png';
 import Img3 from '../../assets/web-images/ven-txt.png'
 import Img4 from '../../assets/web-images/ven-img.png'
 import ServiceTypeCard from '../../components/cards/serviceTypeCard';
+import BGIMG from '../../assets/web-images/bg2.jpg'
 
 const Home = () => {
   const [venues , setVenues] = useState('');

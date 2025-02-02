@@ -14,6 +14,8 @@ import VendorLogin from './pages/vendorLogin/vendorLogin';
 import VendorHome from './pages/vendorHome/vendorHome';
 import VenuesC from './pages/venuesC/venuesC';
 import ServicesC from './pages/servicesC/servicesC';
+import AddVenue from './pages/addVenue/addVenue';
+import ServiceForm from './pages/servicePage/servicePage';
 
 import { initialState, reducer } from "./reducer/UserReducer";
 export const UserContext = createContext();
@@ -38,6 +40,8 @@ function App() {
       <Route path='/vendorHome' element={<VendorHome/>}/> 
       <Route path='/venueClient' element={<VenuesC/>}/> 
       <Route path='/servicesClient' element={<ServicesC/>}/> 
+      <Route path='/addVenue' element={<AddVenue/>}/> 
+      <Route path='/addService' element={<ServiceForm/>}/> 
     </Routes>
   </Router>
   </UserContext.Provider>

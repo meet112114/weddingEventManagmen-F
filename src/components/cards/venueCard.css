@@ -1,6 +1,7 @@
 .venue-card {
     display: flex;
     flex-direction: column;
+    max-height: 200px;
     border-radius: 10px;
     overflow: hidden;
     width: 100%;
@@ -40,7 +41,7 @@
   .venue-card-price {
     font-size: 1em;
     margin-bottom: 3px;
-    color: #007bff;
+    color: #f3354f;
   }
   
   /* Venue type styling */
@@ -54,6 +55,7 @@
   .venue-card {
     flex: 1 1 200px; /* Flex-grow, flex-shrink, and flex-basis */
     max-width: 200px;
-    max-height: 300px;
-    min-width: 130px; /* Ensures minimum width */
+    min-height: 200px;
+    max-height: 200px;
+    min-width: 230px; /* Ensures minimum width */
   }

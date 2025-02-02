@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import VenueCard from '../../components/cards/venueCard';
 import './venuesC.css'
+import BGIMG from '../../assets/web-images/bg1.jpg'
 
 const VenuesC = () => {
   const [venues, setVenues] = useState([]); // All venues
@@ -9,6 +10,7 @@ const VenuesC = () => {
     priceRange: '',
     types: [],
     location: '',
+    tags:[]
   });
 
   useEffect(() => {
@@ -26,80 +28,171 @@ const VenuesC = () => {
     fetchVenues();
   }, []);
 
-  const handleFilterChange = (e) => {
-    const { name, value, checked, type } = e.target;
 
+  const handleFilterChange = (e) => {
+    const { name, value, type, checked } = e.target;
+  
     setFilters((prev) => {
-      if (name === 'types') {
-        const updatedTypes = checked
-          ? [...prev.types, value]
-          : prev.types.filter((type) => type !== value);
-        return { ...prev, types: updatedTypes };
-      } else if (type === 'text' || type === 'select-one') {
-        return { ...prev, [name]: value };
+      let updatedFilters = { ...prev };
+      if (type === "checkbox") {
+        if (name === "tags") {
+          const updatedTags = checked
+            ? [...prev.tags, value]
+            : prev.tags.filter((tag) => tag !== value);
+          updatedFilters.tags = updatedTags;
+        } else if (name === "types") {
+          const updatedTypes = checked
+            ? [...prev.types, value]
+            : prev.types.filter((type) => type !== value);
+          updatedFilters.types = updatedTypes;
+        }
+      } else {
+        updatedFilters[name] = value;
       }
-      return prev;
+  
+      console.log("Updated Filters:", updatedFilters); 
+      return updatedFilters;
     });
   };
-
+  
+  
   useEffect(() => {
     let updatedVenues = [...venues];
-
-    if (filters.priceRange) {
+  
+    // Filter by price range
+    if (filters.priceRange && filters.priceRange.includes("-")) {
       const [min, max] = filters.priceRange.split('-').map(Number);
       updatedVenues = updatedVenues.filter(
         (venue) => venue.basePrice >= min && venue.basePrice <= max
       );
     }
-
-    if (filters.types.length > 0) {
+  
+    if (filters.tags.length > 0) {
       updatedVenues = updatedVenues.filter((venue) =>
-        filters.types.includes(venue.venueType)
+        filters.tags.every(tag => venue.tags.includes(tag)) // Check if venue contains all selected tags
       );
     }
+    if (filters.types.length > 0) {
+      updatedVenues = updatedVenues.filter((venue) => {
+        console.log('Checking type:', venue.venueType); // Debugging log
+        return filters.types.includes(venue.venueType); // Return the check to filter the venues
+      });
+    }
 
+    // Filter by location (Ignore empty "" for 'All')
     if (filters.location) {
       updatedVenues = updatedVenues.filter((venue) =>
-        venue.location.toLowerCase().includes(filters.location.toLowerCase())
+        venue.location?.toLowerCase().includes(filters.location.toLowerCase())
       );
     }
-
+  
     setFilteredVenues(updatedVenues);
   }, [filters, venues]);
+  
 
   return (
-    <div className="venueCpage">
-        <h3>Filters</h3>
-      <div className="filters">
+    <div className="venueCpage"  style={{  
+        backgroundImage: `url(${BGIMG})`,
+        backgroundSize: "cover", 
+        backgroundRepeat: "no-repeat", 
+        height:'90h',
+        margin: 0, 
+        padding: 0,
+        }}>
         
-        <div className="filter-group">
-          <h4>Price Range</h4>
-          <select name="priceRange" value={filters.priceRange} onChange={handleFilterChange}>
-            <option value="">All</option>
-            <option value="0-1000">0 - 1000</option>
-            <option value="1000-5000">1000 - 5000</option>
-            <option value="5000-10000">5000 - 10000</option>
-          </select>
-        </div>
+      <div className="filters">
+      <h4 className='filter-heading'>Filters</h4>
+        
+      <div className="filter-group">
+  <h5>Pricing</h5>
+
+  <input type="radio" id="allp" name="priceRange" value="" checked={filters.priceRange === ""} onChange={handleFilterChange} />
+  <label htmlFor="allp" className="radio-label">All</label>
+
+  <input type="radio" id="0-10000" name="priceRange" value="0-10000" checked={filters.priceRange === "0-10000"} onChange={handleFilterChange} />
+  <label htmlFor="0-10000" className="radio-label">0-10000</label>
+
+  <input type="radio" id="10000-500000" name="priceRange" value="10000-500000" checked={filters.priceRange === "10000-500000"} onChange={handleFilterChange} />
+  <label htmlFor="10000-500000" className="radio-label">10000-500000</label>
+
+  <input type="radio" id="500000-1000000" name="priceRange" value="500000-1000000" checked={filters.priceRange === "500000-1000000"} onChange={handleFilterChange} />
+  <label htmlFor="500000-1000000" className="radio-label">500000-1000000</label>
+</div>
 
         <div className="filter-group">
-          <h5>Venue Type</h5>
-          <select name="types" value={filters.types} onChange={handleFilterChange}>
-            <option value="">All</option>
-            <option value="AC_Lawn_hall">AC_Lawn_hall</option>
-            <option value="AC_hall">AC_hall</option>
-          </select>
-        </div>
+  <h5>Tags</h5>
+
+  <label className="checkbox-label">
+  <input type="checkbox" name="tags" value="ac" checked={filters.tags.includes("ac")} onChange={handleFilterChange} />
+  <span>AC</span> 
+</label>
+
+<label className="checkbox-label">
+  <input type="checkbox" name="tags" value="lawn" checked={filters.tags.includes("lawn")} onChange={handleFilterChange} />
+  <span>Lawn</span> 
+</label>
+
+<label className="checkbox-label">
+  <input type="checkbox" name="tags" value="pool" checked={filters.tags.includes("pool")} onChange={handleFilterChange} />
+  <span>Pool</span> 
+</label>
+
+
+<label className="checkbox-label">
+  <input type="checkbox" name="tags" value="mandap" checked={filters.tags.includes("mandap")} onChange={handleFilterChange} />
+  <span>Mandap</span> 
+</label>
+
+
+<label className="checkbox-label">
+  <input type="checkbox" name="tags" value="outdoor" checked={filters.tags.includes("outdoor")} onChange={handleFilterChange} />
+  <span>Outdoor</span> 
+</label>
+
+
+<label className="checkbox-label">
+  <input type="checkbox" name="tags" value="resort" checked={filters.tags.includes("resort")} onChange={handleFilterChange} />
+  <span>Resort</span> 
+</label>
+
+</div>
+
 
         <div className="filter-group">
-          <h5>Location</h5>
-          <select name="location" value={filters.location} onChange={handleFilterChange}>
-            <option value="">All</option>
-            <option value="mumbai">Mumbai</option>
-            <option value="pune">Pune</option>
-            <option value="nashik">Nashik</option>
-          </select>
-        </div>
+  <h5>Location</h5>
+
+  <input type="radio" id="all" name="location" value="" checked={filters.location === ""} onChange={handleFilterChange} />
+  <label htmlFor="all" className="radio-label">All</label>
+
+  <input type="radio" id="mumbai" name="location" value="mumbai" checked={filters.location === "mumbai"} onChange={handleFilterChange} />
+  <label htmlFor="mumbai" className="radio-label">Mumbai</label>
+
+  <input type="radio" id="pune" name="location" value="pune" checked={filters.location === "pune"} onChange={handleFilterChange} />
+  <label htmlFor="pune" className="radio-label">Pune</label>
+
+  <input type="radio" id="nashik" name="location" value="nashik" checked={filters.location === "nashik"} onChange={handleFilterChange} />
+  <label htmlFor="nashik" className="radio-label">Nashik</label>
+</div>
+
+<div className="filter-group">
+  <h5>Venue Type</h5>
+
+  <label className="checkbox-label">
+  <input type="checkbox" name="types" value="luxury" checked={filters.types.includes("luxury")} onChange={handleFilterChange} />
+  <span>Luxury</span> 
+</label>
+
+<label className="checkbox-label">
+  <input type="checkbox" name="types" value="comfort" checked={filters.types.includes("comfort")} onChange={handleFilterChange} />
+  <span>Comfort</span> 
+</label>
+
+<label className="checkbox-label">
+  <input type="checkbox" name="types" value="budget" checked={filters.types.includes("budget")} onChange={handleFilterChange} />
+  <span>Budget</span>
+  </label>
+</div>
+
       </div>
 
       <div className="venueC-list">
