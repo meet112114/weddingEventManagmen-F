@@ -5,21 +5,29 @@
     flex-direction: column;
     justify-self: center;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     padding-top: 50px;
 }
 
 .VH-div-1-banner{
     background-color: rgba(255, 255, 255, .35);  
     backdrop-filter: blur(5px);
-    padding: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     width: 80%;
-    height: 200px;
+    height: 50px;
     text-align: center;
     color: black;
     font-weight: 600;
-    font-size: 40px;
-    border-radius: 25px;
+    border-radius: 25px; 
+}
+
+.VH-div-1-main{
+display: flex;
+justify-self: center;
+align-items: center;
+gap: 20px;
+padding-top: 30px;
 }
 
 .VH-div-1-venue{
@@ -78,3 +86,49 @@
 .VH-div-1-service-btn:hover{
     background-color: bisque;
 }
+
+.VH-div-2 {
+    display: flex;
+    margin-top: 20px;
+    justify-content:space-around;
+    gap: 100px;
+    
+}
+
+.VH-div-2-l ,
+.VH-div-2-r {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Space between items */
+    padding: 15px;
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    background: #f9f9f9; /* Light background */
+    min-width: 400px; /* Limit width */
+    margin: 20px auto; /* Center horizontally */
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  
+  /* Individual service item */
+  .VH-div-2-l div,
+  .VH-div-2-r div {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+  }
+  
+  /* No service message */
+  .VH-div-2-l p ,
+  .VH-div-2-r p {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+  }
+  

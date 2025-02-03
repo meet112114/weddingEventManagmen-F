@@ -7,15 +7,16 @@ import Img3 from '../../assets/web-images/ven-txt.png'
 import Img4 from '../../assets/web-images/ven-img.png'
 import ServiceTypeCard from '../../components/cards/serviceTypeCard';
 import BGIMG from '../../assets/web-images/bg2.jpg'
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [venues , setVenues] = useState('');
-
+  const navigate = useNavigate();
   
   useEffect(() => {
     const fetchvenues = async () => {
       try {
-        const res = await fetch('/api/get/venue/pune', {
+        const res = await fetch('/api/getAllVenue', {
           method: 'GET',
           credentials: 'include', // Important for sending cookies
         });
@@ -69,7 +70,7 @@ const Home = () => {
           )}
           
           </div>
-          <button className='home-C-venue-bottom-button'> View All .. </button>
+          <button className='home-C-venue-bottom-button' onClick={()=>{navigate('/venueClient')}}> View All .. </button>
       </div>
 
       <div className='service-category'>

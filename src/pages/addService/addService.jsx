@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './addService.css'
 
 const ServiceForm = () => {
   const [service, setService] = useState({
@@ -12,22 +13,45 @@ const ServiceForm = () => {
   const [venues, setVenues] = useState([]);
   const [newPlan, setNewPlan] = useState({ planName: "", description: "", price: "" });
   const [imageFiles, setImageFiles] = useState([]);
+  const [profile, setProfile] = useState('');
 
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await fetch("/api/get/vendor/profile", {
+          method: "GET",
+          credentials: "include", // Important for sending cookies
+        });
+
+        if (res.status === 200) {
+          const data = await res.json();
+          setProfile(data);
+          console.log(data);
+        } else {
+          console.error("Failed to fetch profile");
+        }
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+
+    fetchProfile();
+
+  },[])
 
    useEffect(() => {
       const fetchVenues = async () => {
         try {
-          const res = await fetch('/api/getAllVenue');
+          const res = await fetch(`/api/get/venue/${profile.location}`);
           const data = await res.json();
           setVenues(data);
-          setFilteredVenues(data); // Initialize with all venues
         } catch (error) {
           console.error('Error fetching venues:', error);
         }
       };
   
       fetchVenues();
-    }, []);
+    }, [profile]);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -101,49 +125,74 @@ const ServiceForm = () => {
   
 
   return (
-    <div className="form-container">
-      <h2>Add Service</h2>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <label>Service Name:</label>
-        <input type="text" name="name" value={service.name} onChange={handleChange} required />
+        <div className="main-div">
+            <h2>Add Service</h2>
 
-        <label>Description:</label>
-        <textarea name="description" value={service.description} onChange={handleChange} required />
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <div className="sub-Body">
 
-        <label>Upload Images:</label>
-        <input type="file" multiple onChange={handleImageChange} />
 
-        <label>Select Venues:</label>
-        <div className="venue-list">
-          {venues.map((venue) => (
-            <div key={venue._id}>
-              <input
-                type="checkbox"
-                checked={service.venueList.some((v) => v.venueId === venue._id)}
-                onChange={() => handleVenueSelect(venue._id)}
-              />
-              {venue.name}
-            </div>
-          ))}
-        </div>
+<div className="contaiiner1"> 
 
-        <h3>Pricing Plans:</h3>
-        {service.plans.map((plan, index) => (
-          <div key={index} className="plan-item">
-            <p>{plan.planName} - ${plan.price}</p>
-            <button type="button" onClick={() => removePlan(index)}>Remove</button>
-          </div>
-        ))}
 
-        <h4>Add New Plan</h4>
-        <input type="text" placeholder="Plan Name" value={newPlan.planName} onChange={(e) => setNewPlan({ ...newPlan, planName: e.target.value })}  />
-        <input type="text" placeholder="Description" value={newPlan.description} onChange={(e) => setNewPlan({ ...newPlan, description: e.target.value })}  />
-        <input type="number" placeholder="Price" value={newPlan.price} onChange={(e) => setNewPlan({ ...newPlan, price: e.target.value })}  />
-        <button type="button" onClick={addPlan}>Add Plan</button>
+<h4>Service Name:</h4>
+<input type="text" name="name" value={service.name} onChange={handleChange} required />
 
-        <button type="submit">Submit</button>
-      </form>
+<h4>Description:</h4>
+<textarea name="description" value={service.description} onChange={handleChange} required />
+
+<h4>Upload Images:</h4>
+<input type="file" multiple onChange={handleImageChange} />
+
+</div>
+
+
+<div className="contaiiner2 ">
+
+<h4>Select Venues In {profile.location || "loading .."} </h4>
+<div className="venue-list">
+  {venues.map((venue) => (
+    <div key={venue._id}>
+      <span className="venue-name">{venue.name}</span> 
+      <input
+        type="checkbox"
+        checked={service.venueList.some((v) => v.venueId === venue._id)}
+        onChange={() => handleVenueSelect(venue._id)}
+      />
     </div>
+  ))}
+</div>
+
+</div>
+
+<div className="contaiiner3">
+
+<h4>Add New Plan</h4>
+<input type="text" placeholder="Plan Name" value={newPlan.planName} onChange={(e) => setNewPlan({ ...newPlan, planName: e.target.value })}  />
+<input type="text" placeholder="Description" value={newPlan.description} onChange={(e) => setNewPlan({ ...newPlan, description: e.target.value })}  />
+<input type="number" placeholder="Price" value={newPlan.price} onChange={(e) => setNewPlan({ ...newPlan, price: e.target.value })}  />
+<button type="button" onClick={addPlan}>Add Plan</button>
+
+
+<div className="plan-items">
+{service.plans.map((plan, index) => (
+  <div key={index} className="plan-item">
+    <p>{plan.planName} - ${plan.price}</p>
+    <button type="button" onClick={() => removePlan(index)}>Remove</button>
+  </div>
+))}
+</div>
+
+
+</div>
+        </div>
+        <div className="button-container">
+  <button type="submit">Submit</button>
+</div>
+
+        
+        </form>
+        </div>
   );
 };
 

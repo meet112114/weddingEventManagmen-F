@@ -4,12 +4,10 @@ import './addVenue.css'
 const AddVenue = () => {
   const [venueData, setVenueData] = useState({
     name: '',
-    vendorId: '',
     venueType: '',
     venueDecs: '',
     address: '',
     locationUrl: '',
-    location: '',
     basePrice: '',
     tags: [],
     images: []
@@ -60,8 +58,8 @@ const AddVenue = () => {
       if (response.ok) {
         alert('Venue added successfully');
         setVenueData({
-          name: '', vendorId: '', venueType: '', venueDecs: '', address: '',
-          locationUrl: '', location: '', basePrice: '', tags: [], images: []
+          name: '' , venueType: '', venueDecs: '', address: '',
+          locationUrl: '', basePrice: '', tags: [], images: []
         });
         setSelectedImages([]);
       } else {
@@ -77,7 +75,6 @@ const AddVenue = () => {
       <h2 className="venue-title">Add Venue</h2>
       <form className="venue-form" onSubmit={handleSubmit} encType="multipart/form-data">
         <input className="venue-input" type="text" name="name" placeholder="Venue Name" value={venueData.name} onChange={handleChange} required />
-        <input className="venue-input" type="text" name="vendorId" placeholder="Vendor ID" value={venueData.vendorId} onChange={handleChange} required />
         
         <select className="venue-input" name="venueType" value={venueData.venueType} onChange={handleChange} required>
           <option value="" disabled>Select Venue Type</option>
@@ -89,7 +86,6 @@ const AddVenue = () => {
         <textarea className="venue-input venue-textarea" name="venueDecs" placeholder="Description" value={venueData.venueDecs} onChange={handleChange} required />
         <input className="venue-input" type="text" name="address" placeholder="Address" value={venueData.address} onChange={handleChange} required />
         <input className="venue-input" type="text" name="locationUrl" placeholder="Google Maps URL" value={venueData.locationUrl} onChange={handleChange} required />
-        <input className="venue-input" type="text" name="location" placeholder="Location" value={venueData.location} onChange={handleChange} required />
         <input className="venue-input" type="number" name="basePrice" placeholder="Base Price" value={venueData.basePrice} onChange={handleChange} required />
         
         <div className="venue-tags">
