@@ -4,10 +4,11 @@ import './editVenue.css'
 const EditVenue = () => {
     const { id } = useParams();
     const [venue, setVenue] = useState({});
-    const [newImages, setNewImages] = useState([]); // New images
-    const [removedImages, setRemovedImages] = useState([]); // Removed images
-    const [tags, setTags] = useState([]); // Tags array
-    const [newTag, setNewTag] = useState(""); // New tag input
+    const [newImages, setNewImages] = useState([]); 
+    const [removedImages, setRemovedImages] = useState([]);
+    const [tags, setTags] = useState([]); 
+    const [newTag, setNewTag] = useState(""); 
+    const [loader , setLoader] = useState(true)
 
     useEffect(() => {
         const fetchVenue = async () => {
@@ -19,6 +20,7 @@ const EditVenue = () => {
                 const data = await res.json();
                 setVenue(data);
                 setTags(data.tags || []); // Load tags
+                setLoader(false);
             } catch (error) {
                 console.error('Error fetching venue:', error);
             }
@@ -104,15 +106,45 @@ const EditVenue = () => {
     };
 
     return (
+        <>
+        {loader ? <div> loading ...</div> : <div className='EV-main-div'>
+            <h2 className='EV-H2'>Update Venue</h2>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
-            <input type="text" name="name" value={venue.name || ''} onChange={handleChange} placeholder="Name" />
-            <input type="text" name="vendorId" value={venue.vendorId || ''} onChange={handleChange} placeholder="Vendor ID" />
-            <input type="text" name="venueType" value={venue.venueType || ''} onChange={handleChange} placeholder="Venue Type" />
+            
+            <div className="input-container">
+            <input type="text" name="name" value={venue.name || ''} onChange={handleChange} placeholder=" " />
+            <label>Name</label>
+            </div>
+
+
+            <div className='input-container'> 
             <input type="text" name="venueDecs" value={venue.venueDecs || ''} onChange={handleChange} placeholder="Venue Description" />
+            <label>Venue Description</label>
+            </div>
+
+
+            <div className='input-container'> 
             <input type="text" name="address" value={venue.address || ''} onChange={handleChange} placeholder="Address" />
+            <label>Address</label>
+            </div>
+            
+            <div className='input-container'> 
             <input type="text" name="locationUrl" value={venue.locationUrl || ''} onChange={handleChange} placeholder="Location URL" />
-            <input type="text" name="location" value={venue.location || ''} onChange={handleChange} placeholder="Location" />
+            <label>Location Url</label>
+            </div>
+            
+            
+            <div className='input-container'> 
             <input type="text" name="basePrice" value={venue.basePrice || ''} onChange={handleChange} placeholder="Base Price" />
+            <label>Base Price</label>
+            </div>
+
+            <select className="venue-input" name="venueType" value={venue.venueType || ''} onChange={handleChange} >
+            <option value="" disabled>Select Venue Type</option>
+            <option value="Budget">Budget</option>
+            <option value="Comfort">Comfort</option>
+            <option value="Luxury">Luxury</option>
+            </select>
 
             {/* Existing Images */}
             <h3>Existing Images</h3>
@@ -125,11 +157,9 @@ const EditVenue = () => {
                 ))}
             </div>
 
-            {/* Upload New Images */}
             <h3>Upload New Images</h3>
             <input type="file" multiple onChange={handleNewImageChange} />
 
-            {/* Tags Management */}
             <h3>Tags</h3>
             <div className="tags-container">
                 {tags.map((tag, index) => (
@@ -139,10 +169,16 @@ const EditVenue = () => {
                 ))}
             </div>
             <input type="text" value={newTag} onChange={(e) => setNewTag(e.target.value)} placeholder="New Tag" />
+            <div>
             <button type="button" onClick={addTag}>Add Tag</button>
+            </div>
+            <div className='VH-submitVenue-button'>
 
             <button type="submit">Update Venue</button>
+            </div>
         </form>
+        </div>}
+        </>
     );
 };
 

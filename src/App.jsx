@@ -17,6 +17,7 @@ import ServicesC from './pages/servicesC/servicesC';
 import AddVenue from './pages/addVenue/addVenue';
 import ServiceForm from './pages/addService/addService';
 import EditVenue from './pages/manageVenue/editVenue';
+import EditService from './pages/manageServices/editService';
 
 import { initialState, reducer } from "./reducer/UserReducer";
 export const UserContext = createContext();
@@ -44,6 +45,7 @@ function App() {
       <Route path='/addVenue' element={<AddVenue/>}/> 
       <Route path='/addService' element={<ServiceForm/>}/> 
       <Route path='/edit/venue/:id' element={<EditVenue/>}/>
+      <Route path='/edit/service/:id' element={<EditService/>}/>
     </Routes>
   </Router>
   </UserContext.Provider>

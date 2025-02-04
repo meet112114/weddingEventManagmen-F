@@ -75,6 +75,9 @@ const VendorHome = () => {
     navigate(`/edit/venue/${id}`);
 };
 
+ const handleServiceClick = (id) => {
+  navigate(`/edit/service/${id}`)
+ }
   return (
     <div className="VH-main-div" style={{
       backgroundColor:"gray",
@@ -137,7 +140,7 @@ const VendorHome = () => {
               <h5>Services</h5>
             {services.length > 0 ? (
             services.map((service) => (
-             <div>
+             <div key={service._id} onClick={() => handleServiceClick(service._id)} style={{ cursor: 'pointer' }}>
               {service.name}
              </div>
             ))

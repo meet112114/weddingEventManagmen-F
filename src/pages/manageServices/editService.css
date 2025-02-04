@@ -1,4 +1,4 @@
-.EV-main-div{
+.ES-main-div{
     padding-left: 100px;
     padding-right: 100px;
     align-items: center;
@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-.EV-H2{
+.ES-H2{
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -30,13 +30,13 @@
     border-radius: 8px;
 }
 
-.tags-container {
+.plans-container {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
 
-.tag {
+.plan-item {
     background: #007bff;
     color: white;
     padding: 5px 10px;
@@ -44,6 +44,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .tag button {
