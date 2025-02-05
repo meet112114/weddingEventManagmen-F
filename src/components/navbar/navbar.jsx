@@ -29,9 +29,6 @@ const Navbar = () => {
             <NavLink className="nav-link" to="/venueClient">Venues</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/profile">Services</NavLink>
-          </li>
-          <li className="nav-item">
             <NavLink className="nav-link" to="/logout">Logout</NavLink>
           </li>
         </>
@@ -43,7 +40,10 @@ const Navbar = () => {
             <NavLink className="nav-link" to="/vendorHome">Home</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/vendorProfile">Profile</NavLink>
+            <NavLink className="nav-link" to="/addVenue">Add Venue</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/addService">Add Service</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/logout">Logout</NavLink>
@@ -58,9 +58,6 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/venueClient">Venues</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/servicesClient">Services</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/login">Login</NavLink>

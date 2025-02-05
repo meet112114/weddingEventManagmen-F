@@ -1,0 +1,107 @@
+/* Container */
+
+.service-title-div{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.service-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title */
+  .service-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Main Image */
+  .service-image-s {
+    width: 100%;
+    min-height: 300px;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+  }
+  
+  /* Image Thumbnails */
+  .image-list {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.1);
+    border: 2px solid #007bff;
+  }
+  
+  /* Description */
+  .service-description {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  /* Plans */
+  .plans-container-s {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .plan-card-s {
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+  }
+  
+  .plan-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .plan-description {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .plan-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  /* Location */
+  .service-location {
+    font-size: 16px;
+    color: #555;
+    font-style: italic;
+  }
+  

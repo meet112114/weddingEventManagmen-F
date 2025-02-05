@@ -4,6 +4,7 @@ import './addService.css'
 const ServiceForm = () => {
   const [service, setService] = useState({
     name: "",
+    serviceType:"",
     description: "",
     images: [],
     venueList: [],
@@ -90,6 +91,7 @@ const ServiceForm = () => {
     const formData = new FormData();
   
     formData.append("name", service.name);
+    formData.append("serviceType" , service.serviceType)
     formData.append("vendorId", service.vendorId);
     formData.append("description", service.description);
   
@@ -143,6 +145,16 @@ const ServiceForm = () => {
 
 <h4>Upload Images:</h4>
 <input type="file" multiple onChange={handleImageChange} />
+
+<select className="service-input" name="serviceType" value={service.venueType} onChange={handleChange} required>
+          <option value="" disabled>Select Service Type</option>
+          <option value="catering">catering</option>
+          <option value="decoration">decoration</option>
+          <option value="entertainment">entertainment</option>
+          <option value="photography">photography</option>
+          <option value="makeup">makeup</option>
+          <option value="others">others</option>
+        </select>
 
 </div>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './vendorHome.css'
-import BGIMG from '../../assets/web-images/bg2.jpg'
+import BGIMG from '../../assets/web-images/bg1.jpg'
 import { useNavigate } from 'react-router-dom';
 
 const VendorHome = () => {
@@ -72,22 +72,32 @@ const VendorHome = () => {
   }
 
   const handleVenueClick = (id) => {
-    navigate(`/edit/venue/${id}`);
+    navigate(`/vendor/venueDetail/${id}`);
 };
 
  const handleServiceClick = (id) => {
-  navigate(`/edit/service/${id}`)
+  navigate(`/vendor/serviceDetail/${id}`)
  }
   return (
-    <div className="VH-main-div" style={{
-      backgroundColor:"gray",
-      height:"100%"
-    }}>
+    <div className="VH-main-div" style={{  
+            backgroundImage: `url(${BGIMG})`,
+            backgroundSize: "cover", 
+            backgroundRepeat: "no-repeat", 
+            height:'90h',
+            margin: 0, 
+            padding: 0,
+            }}>
       <div className="VH-div-1">
 
         <div className="VH-div-1-banner">
             <h2>Welcome {profile.name} nice to meet you </h2>
+
+        <p><strong>Contact No:</strong> {profile.contactNo}</p>
+        <p><strong>Email:</strong> {profile.contactEmail}</p>
+        <p><strong>Location:</strong> {profile.location}</p>
+        <p><strong>GST No:</strong> {profile.GstNo}</p>
         </div>
+
 
         <div className="VH-div-1-main">
 
@@ -96,33 +106,7 @@ const VendorHome = () => {
           {profile.venues && profile.venues.length > 0 ? (
             <>
               <h6>Total Venues: {profile.venues.length}</h6>
-              <button className="VH-div-1-venue-btn" onClick={() => navigate('/addVenue')}>
-                Add Venues
-              </button>
-            </>
-          ) : (
-            <p>No venues added yet.</p>
-          )}
-        </div>
-
-        <div className="VH-div-1-service">
-          <h3>Services</h3>
-          {profile.services && profile.services.length > 0 ? (
-            <>
-              <h6>Total Services: {profile.services.length}</h6>
-              <button className="VH-div-1-service-btn" onClick={() => navigate('/addService')}>
-                Add Services
-              </button>
-            </>
-          ) : (
-            <p>No services added yet.</p>
-          )}
-        </div>
-        </div>
-
-          <div className="VH-div-2">
-            <div className="VH-div-2-l">
-            <h5>Venues</h5>
+              <div className="VH-div-2-l">
 
                         {venues.length > 0 ? (
                 venues.map((venue) => (
@@ -136,8 +120,18 @@ const VendorHome = () => {
 
 
             </div>
-            <div className="VH-div-2-r">
-              <h5>Services</h5>
+            </>
+          ) : (
+            <p>No venues added yet.</p>
+          )}
+        </div>
+
+        <div className="VH-div-1-service">
+          <h3>Services</h3>
+          {profile.services && profile.services.length > 0 ? (
+            <>
+              <h6>Total Services: {profile.services.length}</h6>
+              <div className="VH-div-2-r">
             {services.length > 0 ? (
             services.map((service) => (
              <div key={service._id} onClick={() => handleServiceClick(service._id)} style={{ cursor: 'pointer' }}>
@@ -148,8 +142,12 @@ const VendorHome = () => {
             <p>No service found</p>
           )}
             </div>
-          </div>
-
+            </>
+          ) : (
+            <p>No services added yet.</p>
+          )}
+        </div>
+        </div>
       </div>
 
     </div>

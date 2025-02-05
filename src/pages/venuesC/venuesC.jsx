@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import VenueCard from '../../components/cards/venueCard';
 import './venuesC.css'
 import BGIMG from '../../assets/web-images/bg1.jpg'
+import { useNavigate } from 'react-router-dom';
 
 const VenuesC = () => {
+  const navigate = useNavigate();
   const [venues, setVenues] = useState([]); // All venues
   const [filteredVenues, setFilteredVenues] = useState([]); // Filtered venues
   const [filters, setFilters] = useState({
@@ -198,13 +200,16 @@ const VenuesC = () => {
       <div className="venueC-list">
         {filteredVenues.length > 0 ? (
           filteredVenues.map((venue) => (
+            <div 
+            onClick={() => navigate(`/venuePage/${venue._id}`)}>
             <VenueCard
               key={venue._id}
               name={venue.name}
               price={venue.basePrice}
               venueType={venue.venueType}
-              image={venue.images[0]} // Fallback to a default image
+              image={venue.images[0]} 
             />
+            </div>
           ))
         ) : (
           <p>No venues found</p>

@@ -1,0 +1,195 @@
+.VP-services-sec {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Responsive grid */
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  .VP-service {
+    color: black;
+    background: #ffdbac;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .VP-service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .VP-service-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .VP-service-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .VP-service p {
+    font-size: 14px;
+    color: #000000;
+    margin: 5px 0;
+  }
+  
+  /* Main container styling */
+.VP-venue-title-div {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .venue-title {
+    font-size: 35px;
+    font-weight: bold;
+    color: #333;
+    font-family: monospace;
+  }
+  
+  /* Main Venue Image */
+  .venue-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  /* Thumbnail Image List */
+  .VP-image-list {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .VP-thumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.3s ease, border 0.3s ease;
+  }
+  
+  .VP-thumbnail:hover {
+    transform: scale(1.1);
+  }
+  
+  .VP-thumbnail.selected {
+    border: 3px solid #ff6600;
+    transform: scale(1.1);
+  }
+  
+  /* Basic Information Section */
+  .VP-basic-info {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .VP-basic-info h5 {
+    font-size: 20px;
+    color: #444;
+    margin: 8px 0;
+  }
+  
+  /* Tags Section */
+  .VP-tags-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+  
+  .tags {
+    background: #ff6600;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  /* Description */
+  .VP-venue-description {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 10px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .VP-venue-container{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 80%;
+  }
+
+  .services-banner {
+    margin-top: 20px;
+    font-family: monospace;
+    font-weight: 500;
+  }
+
+  .VP-inquiry-container {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .VP-inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .VP-inquiry-form input,
+  .VP-inquiry-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .VP-inquiry-form textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .VP-inquiry-form button {
+    padding: 10px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .VP-inquiry-form button:hover {
+    background-color: #e65c00;
+  }
+  
+  .inquiry-status {
+    margin-top: 10px;
+    font-weight: bold;
+    color: green;
+  }
+  

@@ -30,8 +30,10 @@
     border-radius: 8px;
 }
 
-.plans-container {
+.plans-containers {
+    width: 100%;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 5px;
 }

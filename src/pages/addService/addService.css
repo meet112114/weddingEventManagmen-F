@@ -134,4 +134,15 @@
     font-weight: bold;
     color: #007bff; /* Highlight selected */
   }
+
+  .service-input{
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+  }
   
