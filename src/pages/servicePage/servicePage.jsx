@@ -52,7 +52,7 @@ const ServicePage = () => {
       const response = await fetch("/api/add/service/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ serviceId: serviceId, vendorId:service.vendorId , ...inquiry })
+        body: JSON.stringify({ serviceId: serviceId, serviceName: service.name ,   vendorId:service.vendorId , ...inquiry })
       });
 
       const data = await response.json();

@@ -76,8 +76,8 @@ const VenuesC = () => {
     }
     if (filters.types.length > 0) {
       updatedVenues = updatedVenues.filter((venue) => {
-        console.log('Checking type:', venue.venueType); // Debugging log
-        return filters.types.includes(venue.venueType); // Return the check to filter the venues
+        console.log('Checking type:', venue.venueType); 
+         return filters.types.includes(venue.venueType); // Return the check to filter the venues
       });
     }
 
@@ -111,14 +111,14 @@ const VenuesC = () => {
   <input type="radio" id="allp" name="priceRange" value="" checked={filters.priceRange === ""} onChange={handleFilterChange} />
   <label htmlFor="allp" className="radio-label">All</label>
 
-  <input type="radio" id="0-10000" name="priceRange" value="0-10000" checked={filters.priceRange === "0-10000"} onChange={handleFilterChange} />
-  <label htmlFor="0-10000" className="radio-label">0-10000</label>
+  <input type="radio" id="0-100000" name="priceRange" value="0-100000" checked={filters.priceRange === "0-100000"} onChange={handleFilterChange} />
+  <label htmlFor="0-100000" className="radio-label">0-100000</label>
 
-  <input type="radio" id="10000-500000" name="priceRange" value="10000-500000" checked={filters.priceRange === "10000-500000"} onChange={handleFilterChange} />
-  <label htmlFor="10000-500000" className="radio-label">10000-500000</label>
+  <input type="radio" id="100001-500000" name="priceRange" value="100001-500000" checked={filters.priceRange === "100001-500000"} onChange={handleFilterChange} />
+  <label htmlFor="100001-500000" className="radio-label">100001-500000</label>
 
-  <input type="radio" id="500000-1000000" name="priceRange" value="500000-1000000" checked={filters.priceRange === "500000-1000000"} onChange={handleFilterChange} />
-  <label htmlFor="500000-1000000" className="radio-label">500000-1000000</label>
+  <input type="radio" id="500001-100000000" name="priceRange" value="500001-100000000" checked={filters.priceRange === "500001-100000000"} onChange={handleFilterChange} />
+  <label htmlFor="500001-100000000" className="radio-label">500001-1000000</label>
 </div>
 
         <div className="filter-group">
@@ -172,25 +172,23 @@ const VenuesC = () => {
   <input type="radio" id="pune" name="location" value="pune" checked={filters.location === "pune"} onChange={handleFilterChange} />
   <label htmlFor="pune" className="radio-label">Pune</label>
 
-  <input type="radio" id="nashik" name="location" value="nashik" checked={filters.location === "nashik"} onChange={handleFilterChange} />
-  <label htmlFor="nashik" className="radio-label">Nashik</label>
 </div>
 
 <div className="filter-group">
   <h5>Venue Type</h5>
 
   <label className="checkbox-label">
-  <input type="checkbox" name="types" value="luxury" checked={filters.types.includes("luxury")} onChange={handleFilterChange} />
+  <input type="checkbox" name="types" value="Luxury" checked={filters.types.includes("Luxury")} onChange={handleFilterChange} />
   <span>Luxury</span> 
 </label>
 
 <label className="checkbox-label">
-  <input type="checkbox" name="types" value="comfort" checked={filters.types.includes("comfort")} onChange={handleFilterChange} />
+  <input type="checkbox" name="types" value="Comfort" checked={filters.types.includes("Comfort")} onChange={handleFilterChange} />
   <span>Comfort</span> 
 </label>
 
 <label className="checkbox-label">
-  <input type="checkbox" name="types" value="budget" checked={filters.types.includes("budget")} onChange={handleFilterChange} />
+  <input type="checkbox" name="types" value="Budget" checked={filters.types.includes("Budget")} onChange={handleFilterChange} />
   <span>Budget</span>
   </label>
 </div>

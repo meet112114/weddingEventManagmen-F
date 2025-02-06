@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './editVenue.css'
+import { useNavigate } from 'react-router-dom';
 const EditVenue = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const [venue, setVenue] = useState({});
     const [newImages, setNewImages] = useState([]); 
@@ -9,6 +11,9 @@ const EditVenue = () => {
     const [tags, setTags] = useState([]); 
     const [newTag, setNewTag] = useState(""); 
     const [loader , setLoader] = useState(true)
+
+
+  const tagOptions = ['ac', 'mandap', 'pool', 'lawn', 'resort' ,'outdoor'];
 
     useEffect(() => {
         const fetchVenue = async () => {
@@ -97,6 +102,7 @@ const EditVenue = () => {
 
             if (res.ok) {
                 alert('Venue updated successfully!');
+                navigate(`/venuePage/${id}`); 
             } else {
                 alert('Error updating venue');
             }
@@ -160,18 +166,47 @@ const EditVenue = () => {
             <h3>Upload New Images</h3>
             <input type="file" multiple onChange={handleNewImageChange} />
 
+  
+
             <h3>Tags</h3>
-            <div className="tags-container">
-                {tags.map((tag, index) => (
-                    <span key={index} className="tag">
-                        {tag} <button type="button" onClick={() => removeTag(tag)}>x</button>
-                    </span>
-                ))}
-            </div>
-            <input type="text" value={newTag} onChange={(e) => setNewTag(e.target.value)} placeholder="New Tag" />
-            <div>
+<div className="tags-container">
+    {tags.map((tag, index) => (
+        <span key={index} className="tag">
+            {tag} 
+            <button type="button" onClick={() => removeTag(tag)}>x</button>
+        </span>
+    ))}
+</div>
+
+<div className="service-tags">
+    {tagOptions.map(tag => (
+        <label key={tag} className="venue-tag-label">
+            <input 
+                type="checkbox" 
+                value={tag} 
+                checked={tags.includes(tag)}
+                onChange={(e) => {
+                    if (e.target.checked) {
+                        setTags([...tags, tag]); // Add tag if checked
+                    } else {
+                        setTags(tags.filter(t => t !== tag)); // Remove tag if unchecked
+                    }
+                }}
+            />
+            {tag}
+        </label>
+    ))}
+</div>
+
+   
+           
+
+            
+<div>
             <button type="button" onClick={addTag}>Add Tag</button>
             </div>
+
+
             <div className='VH-submitVenue-button'>
 
             <button type="submit">Update Venue</button>

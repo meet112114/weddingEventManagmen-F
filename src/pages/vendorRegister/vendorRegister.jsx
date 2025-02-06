@@ -91,14 +91,16 @@ const VendorRegister = () => {
             value={formData.contactEmail}
             onChange={handleChange}
           />
-          <input
-            className='V-inputs'
-            type='text'
-            name='location'
-            placeholder='Location*'
-            value={formData.location}
-            onChange={handleChange}
-          />
+         <select
+  className="V-inputs"
+  name="location"
+  value={formData.location}
+  onChange={handleChange}
+>
+  <option value="" disabled>Select Location*</option>
+  <option value="mumbai">Mumbai</option>
+  <option value="pune">Pune</option>
+</select>
           <input
             className='V-inputs'
             type='text'

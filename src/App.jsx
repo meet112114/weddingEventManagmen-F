@@ -13,7 +13,6 @@ import VendorRegister from './pages/vendorRegister/vendorRegister';
 import VendorLogin from './pages/vendorLogin/vendorLogin';
 import VendorHome from './pages/vendorHome/vendorHome';
 import VenuesC from './pages/venuesC/venuesC';
-import ServicesC from './pages/servicesC/servicesC';
 import AddVenue from './pages/addVenue/addVenue';
 import ServiceForm from './pages/addService/addService';
 import EditVenue from './pages/manageVenue/editVenue';
@@ -22,6 +21,7 @@ import VenueDetails from './pages/viewVenueVendor/vvv';
 import ServiceDetails from './pages/viewServiceVendor/vsv';
 import VenuePage from './pages/venuePage/venuePage';
 import ServicePage from './pages/servicePage/servicePage';
+import ServicesC from './pages/servicesC/servicesC';
 
 import { initialState, reducer } from "./reducer/UserReducer";
 export const UserContext = createContext();
@@ -53,7 +53,7 @@ function App() {
       <Route path='/vendor/venueDetail/:venueId' element={<VenueDetails/>}/>
       <Route path='/vendor/serviceDetail/:serviceId' element={<ServiceDetails/>}/>
       <Route path='/venuePage/:id' element={<VenuePage/>}/>
-
+      <Route path='/ServiceClient' element={<ServicesC/>}/>
       <Route path='/servicePage/:serviceId' element={<ServicePage/>}/>
 
     </Routes>

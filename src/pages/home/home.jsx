@@ -5,7 +5,7 @@ import ServiceTypeCard from '../../components/cards/ServiceTypeCard';
 import { useNavigate } from 'react-router-dom';
 
 import Img from '../../assets/web-images/ind-wed-bg.jpg';
-import Img2 from '../../assets/web-images/3.png';
+import Img2 from '../../assets/web-images/111.png';
 import Img3 from '../../assets/web-images/ven-txt.png';
 import Img4 from '../../assets/web-images/ven-img.png';
 
@@ -70,7 +70,8 @@ const Home = () => {
       <div className='home-C-venue'>
         <div className='home-C-venue-top'>
           <div className='home-C-venue-top-text'>
-            <img src={Img3} className='home-C-venue-top-text-image' />
+            <div className='top-venue-text-1'>Top Venues</div>
+            <div className='top-venue-text-2'>Near You </div>
           </div>
           <div className='home-C-venue-top-img'>
             <img src={Img4} className='home-C-venue-top-image-image' />
@@ -97,8 +98,10 @@ const Home = () => {
 
       {/* Services Section */}
       <div className='home-services-section'>
+
+
         {/* Catering Services */}
-        <h2 className='home-services-title'>🍽️ Catering Services</h2>
+        <h1 className='h1-service'>  Catering Services</h1>
         <div className='home-services-row'>
           {cateringServices.length > 0 ? (
             cateringServices.map((service) => (
@@ -116,7 +119,7 @@ const Home = () => {
         </div>
 
         {/* Decoration Services */}
-        <h2 className='home-services-title'>🎉 Decoration Services</h2>
+        <h1 className='h1-service'> Decor Services</h1>
         <div className='home-services-row'>
           {decorationServices.length > 0 ? (
             decorationServices.map((service) => (
@@ -133,7 +136,7 @@ const Home = () => {
           )}
         </div>
 
-        <h2 className='home-services-title'>🎉 Decoration Services</h2>
+        <h1 className='h1-service'> Other Services</h1>
         <div className='home-services-row'>
           {otherServices.length > 0 ? (
             otherServices.map((service) => (
@@ -149,7 +152,7 @@ const Home = () => {
             <p>No decoration services found</p>
           )}
         </div>
-
+        <button className='home-C-venue-bottom-button' onClick={() => { navigate('/ServiceClient') }}> View All .. </button>
 
       </div>
     </div>

@@ -66,7 +66,7 @@ const VenuePage = () => {
       const response = await fetch("/api/add/venue/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ venueId: id, vendorId:venue.vendorId , ...inquiry })
+        body: JSON.stringify({ venueId: id, venueName:venue.name , vendorId:venue.vendorId , ...inquiry })
       });
 
       const data = await response.json();
@@ -90,7 +90,7 @@ const VenuePage = () => {
       {venue && (
         <>
           <div className="VP-venue-title-div">
-            <h1 className="venue-title">{'Venue Name : ' + venue.name}</h1>
+            <h1 className="venue-title">{ venue.name}</h1>
           </div>
 
           <img src={"http://localhost:5000" + selectedImage} alt={venue.name} className="venue-image" />
@@ -110,7 +110,7 @@ const VenuePage = () => {
       )}
       
       <div className="VP-basic-info">
-        <h5>{"Base Price: " + (venue.basePrice ?? "Not Available")}</h5>
+        <h5>{"Base Price : " + (venue.basePrice ?? "Not Available")}</h5>
         <h5>{"VenueType : " + venue.venueType}</h5>
         <h5>{"Address : " + venue.address}</h5>
       </div>

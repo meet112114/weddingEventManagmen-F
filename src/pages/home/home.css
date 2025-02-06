@@ -30,6 +30,16 @@
     padding-right: 10px;
     flex: 2;
     height: 20vh;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.top-venue-text-1{
+    font-size: 70px;
+}
+
+.top-venue-text-2{
+    font-size: 50px;
 }
 
 .home-C-venue-top-text-image{
@@ -117,13 +127,13 @@
 }
 
 .service-category-button:hover {
-    background-color: #ff9112;
+    background-color: #ffa43c;
     color: white;
 }
 
 .home-services-section {
     padding: 40px 20px;
-    background: #f8f9fa;
+    background: #ffeaca;
     text-align: center;
   }
   
@@ -143,6 +153,11 @@
     flex-wrap: wrap;
     margin-bottom: 30px;
   }
-  
+
+  .h1-service{
+    margin-bottom: 30px;
+    font-family: fantasy;
+  }
+
 
   
