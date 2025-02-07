@@ -55,10 +55,7 @@ const Home = () => {
     fetchServices();
   }, []);
 
-  // Filter services based on type
-  const cateringServices = services.filter(service => service.serviceType === "catering").slice(0, 5);
-  const decorationServices = services.filter(service => service.serviceType === "decoration").slice(0, 5);
-  const otherServices = services.filter(service => service.serviceType === "others").slice(5, 10);
+  const otherServices = services.filter(service => service.serviceType === "others").slice(0, 5);
 
 
   return (
@@ -100,41 +97,8 @@ const Home = () => {
       <div className='home-services-section'>
 
 
-        {/* Catering Services */}
-        <h1 className='h1-service'>  Catering Services</h1>
-        <div className='home-services-row'>
-          {cateringServices.length > 0 ? (
-            cateringServices.map((service) => (
-              <div key={service._id} onClick={() => navigate(`/servicePage/${service._id}`)}>
-                <ServiceTypeCard
-                  name={service.name}
-                  vendor={service.vendorName}
-                  image={service.images[0]}
-                />
-              </div>
-            ))
-          ) : (
-            <p>No catering services found</p>
-          )}
-        </div>
-
-        {/* Decoration Services */}
-        <h1 className='h1-service'> Decor Services</h1>
-        <div className='home-services-row'>
-          {decorationServices.length > 0 ? (
-            decorationServices.map((service) => (
-              <div key={service._id} onClick={() => navigate(`/servicePage/${service._id}`)}>
-                <ServiceTypeCard
-                  name={service.name}
-                  vendor={service.vendorName}
-                  image={service.images[0]}
-                />
-              </div>
-            ))
-          ) : (
-            <p>No decoration services found</p>
-          )}
-        </div>
+    
+    
 
         <h1 className='h1-service'> Other Services</h1>
         <div className='home-services-row'>
@@ -143,7 +107,7 @@ const Home = () => {
               <div key={service._id} onClick={() => navigate(`/servicePage/${service._id}`)}>
                 <ServiceTypeCard
                   name={service.name}
-                  vendor={service.vendorName}
+                  vendorName={service.vendorName}
                   image={service.images[0]}
                 />
               </div>

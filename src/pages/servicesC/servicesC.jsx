@@ -129,7 +129,7 @@ const ServicesC = () => {
             <div key={service._id} onClick={() => navigate(`/servicePage/${service._id}`)}>
               <ServiceTypeCard
                 name={service.name}
-                vendor={service.vendor}
+                vendorName={service.vendorName}
                 price={service.price}
                 image={service.images[0]}
               />
