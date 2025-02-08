@@ -1,0 +1,115 @@
+/* Main container styling */
+.O-main-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Right side: outfit details and image grid */
+  .O-right-div {
+    margin-left: 50px;
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+  }
+  
+  /* Title section */
+  .ORD-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .ORD-title h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .ORD-title p {
+    font-size: 1em;
+    color: #666;
+  }
+  
+  /* Grid container for outfit.images */
+  .ORD-imageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+    gap: 15px;
+  }
+  
+  /* Each image container styling */
+  .image-wrapper {
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .image-wrapper img {
+    width: 300px;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .image-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Left side: static text and contact info */
+  .left-div {
+    flex: 0.4;
+    max-width: 350px;
+    background-color: beige;
+    padding: 20px;
+    padding-top: 70px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 50px;
+  }
+  
+  /* Heading styling */
+  .LD-TopHeading h1 {
+    letter-spacing: 0.15em;
+    margin: 5px 0;
+    font-size: 2.5em;
+    color: #555;
+    font-family: 'Georgia', serif;
+  }
+  
+  /* Book now section styling */
+  .book-now-sec {
+    background-color: rgba(124, 124, 124, 0.3);  
+    backdrop-filter: blur(35px);
+    border-radius: 25px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  .book-now-sec .book-now {
+    color: white;
+    font-weight: 500px;
+    font-family: 'Arial', sans-serif;
+    margin: 10px 0;
+  }
+  
+  .book-now-h2{
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+  }
+
+  .book-now-sub{
+    color: #666;
+  }

@@ -1,0 +1,54 @@
+/* OutfitMain.css */
+
+.container {
+    padding: 20px;
+  }
+
+  .title-h2{
+    font-family: monospace;
+    color: white;
+    font-weight: 700px;
+    font-size: 40PX;
+  }
+  
+  .card-container {
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+  }
+  
+  .outfit-card {
+
+    background-color: rgba(255, 255, 255, 0.55);  
+    backdrop-filter: blur(3px);
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    width: 250px;
+    min-height: 200px;
+    text-align: center;
+  }
+  
+  .outfit-card img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    border-radius: 4px;
+  }
+  
+  .outfit-card h3 {
+
+    color: black;
+    font-weight: 600px;
+    font-family: monospace;
+    margin-top: 20px;
+  }
+  
+  .outfit-card:hover{   
+     transform: translateY(-5px);
+
+  }

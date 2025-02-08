@@ -22,6 +22,8 @@ import ServiceDetails from './pages/viewServiceVendor/vsv';
 import VenuePage from './pages/venuePage/venuePage';
 import ServicePage from './pages/servicePage/servicePage';
 import ServicesC from './pages/servicesC/servicesC';
+import OutfitMain from './pages/outfit-main/outfitMain';
+import Outfit from './pages/outfit-single/outfit';
 
 import { initialState, reducer } from "./reducer/UserReducer";
 export const UserContext = createContext();
@@ -55,6 +57,8 @@ function App() {
       <Route path='/venuePage/:id' element={<VenuePage/>}/>
       <Route path='/ServiceClient' element={<ServicesC/>}/>
       <Route path='/servicePage/:serviceId' element={<ServicePage/>}/>
+      <Route path='/outfits' element={<OutfitMain/>}/>
+      <Route path='/outfit/:id' element={<Outfit/>}/>
 
     </Routes>
   </Router>

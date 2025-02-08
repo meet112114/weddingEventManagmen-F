@@ -32,6 +32,9 @@ const Navbar = () => {
             <NavLink className="nav-link" to="/ServiceClient">Services</NavLink>
           </li>
           <li className="nav-item">
+            <NavLink className="nav-link" to="/outfits">Outfits</NavLink>
+          </li>
+          <li className="nav-item">
             <NavLink className="nav-link" to="/logout">Logout</NavLink>
           </li>
         </>
@@ -65,6 +68,10 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink className="nav-link" to="/ServiceClient">Services</NavLink>
           </li>
+
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/outfits">Outfits</NavLink>
+          </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/login">Login</NavLink>
           </li>
@@ -84,8 +91,8 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbarclass">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Meet.$
+          <a className="navbar-brand" style={{fontFamily:"monospace"}} href="#">
+            Wed-Me-Good
           </a>
           <button
             className="navbar-toggler"
