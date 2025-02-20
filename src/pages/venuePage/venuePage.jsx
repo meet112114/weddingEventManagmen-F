@@ -93,13 +93,13 @@ const VenuePage = () => {
             <h1 className="venue-title">{ venue.name}</h1>
           </div>
 
-          <img src={"http://localhost:5000" + selectedImage} alt={venue.name} className="venue-image" />
+          <img src={"http://192.168.0.107:5000" + selectedImage} alt={venue.name} className="venue-image" />
 
           <div className="VP-image-list">
             {venue.images.map((img, index) => (
               <img
                 key={index}
-                src={"http://localhost:5000" + img}
+                src={"http://192.168.0.107:5000" + img}
                 alt="Venue Thumbnail"
                 className={`VP-thumbnail ${selectedImage === img ? "selected" : ""}`}
                 onClick={() => setSelectedImage(img)}
@@ -175,7 +175,7 @@ const VenuePage = () => {
           .filter((s) => s.venueList.some((v) => v.venueId === id && v.status === "true"))
           .map((service) => (
             <div key={service._id} className="VP-service" onClick={() => navigate(`/servicePage/${service._id}`)}>
-              <img className="VP-service-image" src={"http://localhost:5000" + service.images[0]} alt={service.name} />
+              <img className="VP-service-image" src={"http://192.168.0.107:5000" + service.images[0]} alt={service.name} />
               <p className="VP-service-name"><strong>Service Name : </strong>{service.name}</p>
               <p><strong>Vendor Name : </strong>{service.vendorName ? service.vendorName : "Not Available"}</p>
               <p><strong>No Of Plans : </strong>{service.plans.length}</p>

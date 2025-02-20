@@ -127,7 +127,7 @@ const EditService = () => {
                 <div className="image-container">
                     {service.images && service.images.map((imageUrl, index) => (
                         <div key={index} className="image-box">
-                            <img src={"http://localhost:5000" + imageUrl} alt="service" className="image-preview" />
+                            <img src={"http://192.168.0.107:5000" + imageUrl} alt="service" className="image-preview" />
                             <button type="button" onClick={() => handleRemoveImage(imageUrl)}>Remove</button>
                         </div>
                     ))}

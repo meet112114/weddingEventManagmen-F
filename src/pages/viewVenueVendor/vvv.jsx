@@ -105,14 +105,14 @@ const VenueDetails = () => {
           
 
           {/* Main Image Display */}
-          <img src={"http://localhost:5000" + selectedImage} alt={venue.name} className="venue-image" />
+          <img src={"http://192.168.0.107:5000" + selectedImage} alt={venue.name} className="venue-image" />
 
           {/* Image Thumbnail List */}
           <div className="image-list">
             {venue.images.map((img, index) => (
               <img
                 key={index}
-                src={"http://localhost:5000" + img}
+                src={"http://192.168.0.107:5000" + img}
                 alt="Venue Thumbnail"
                 className={`thumbnail ${selectedImage === img ? "selected" : ""}`}
                 onClick={() => setSelectedImage(img)}

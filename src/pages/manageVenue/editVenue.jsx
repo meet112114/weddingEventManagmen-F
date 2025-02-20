@@ -157,7 +157,7 @@ const EditVenue = () => {
             <div className="image-container">
                 {venue.images && venue.images.map((imageUrl, index) => (
                     <div key={index} className="image-box">
-                        <img src={"http://localhost:5000"+imageUrl} alt="venue" className="image-preview" />
+                        <img src={"http://192.168.0.107:5000"+imageUrl} alt="venue" className="image-preview" />
                         <button type="button" onClick={() => handleRemoveImage(imageUrl)}>Remove</button>
                     </div>
                 ))}

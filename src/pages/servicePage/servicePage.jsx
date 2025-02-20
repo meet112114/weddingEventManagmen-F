@@ -81,7 +81,7 @@ const ServicePage = () => {
 
         </div>
       <img
-        src={"http://localhost:5000" + selectedImage}
+        src={"http://192.168.0.107:5000" + selectedImage}
         alt={service.name}
         className="SP-service-image"
       />
@@ -90,7 +90,7 @@ const ServicePage = () => {
         {service.images.map((img, index) => (
           <img
             key={index}
-            src={"http://localhost:5000" + img}
+            src={"http://192.168.0.107:5000" + img}
             alt="SP-Service Thumbnail"
             className="thumbnail"
             onClick={() => setSelectedImage(img)}
