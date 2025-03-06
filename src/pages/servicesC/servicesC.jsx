@@ -18,7 +18,8 @@ const ServicesC = () => {
       try {
         const res = await fetch('/api/getAllService'); 
         const data = await res.json();
-        setServices(data);
+        const acceptedServices = data.filter(service => service.status === "accepted");
+        setServices(acceptedServices);
         setFilteredServices(data); 
       } catch (error) {
         console.error('Error fetching services:', error);

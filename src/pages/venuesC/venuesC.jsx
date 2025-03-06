@@ -20,7 +20,8 @@ const VenuesC = () => {
       try {
         const res = await fetch('/api/getAllVenue');
         const data = await res.json();
-        setVenues(data);
+        const acceptedVenues = data.filter(venue => venue.status === "accepted");
+          setVenues(acceptedVenues.slice(0, 5));
         setFilteredVenues(data); // Initialize with all venues
       } catch (error) {
         console.error('Error fetching venues:', error);

@@ -169,89 +169,74 @@ padding-top: 30px;
     font-size: 14px;
     color: #555;
   }
-  .VH-bookings {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .VH-booking-card {
-    background-color: #fff;
-    padding: 20px;
-    min-width: 500px;
-    border-radius: 8px;
-    border-left: 5px solid #ff6600;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .VH-booking-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  }
-  
-  .VH-booking-card h5 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .VH-booking-card p {
-    font-size: 16px;
-    margin: 8px 0;
-    color: #555;
-    line-height: 1.4;
-  }
-  
-  .status {
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  .status.confirmed {
-    background-color: #4caf50;
-    color: #fff;
-  }
-  
-  .status.pending {
-    background-color: #ff9800;
-    color: #fff;
-  }
-  
 
-  .status.rejected {
-    background-color: #e53935;
-    color: #fff;
-  }
-  
-  
-  .VH-booking-card button {
-    margin-left: 20px;
-    margin-top: 15px;
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 16px;
+  .VH-bookings {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.VH-booking-card {
+    width: 90%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 15px;
+    color: black;
+    font-weight: 200;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    margin-bottom: 20px; /* Add margin to prevent overlapping */
+}
+
+.VH-booking-card h5 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.VH-booking-card p {
+    margin: 5px 0;
+}
+
+.VH-booking-card button {
+    padding: 8px 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .VH-booking-card button:hover {
-    background-color: #388e3c;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
-    .VH-bookings {
-      grid-template-columns: 1fr;
-      padding: 10px;
+    transition: 0.3s;
+}
+
+.VH-booking-card button:hover {
+    opacity: 0.8;
+}
+
+.VH-booking-card .status {
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.status.confirmed {
+    color: green;
+}
+
+.status.rejected {
+    color: red;
+}
+
+.status.pending {
+    color: orange;
+}
+
+@media (max-width: 768px) {
+    .VH-booking-card {
+        width: 100%;
     }
-  }
-  
+}

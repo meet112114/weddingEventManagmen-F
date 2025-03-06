@@ -370,6 +370,7 @@ const VendorHome = () => {
 
           {/* Service Bookings */}
           <h4>Service Bookings</h4>
+          
           {bookings.services.length > 0 ? (
             bookings.services.map((booking) => (
               <div key={booking._id} className="VH-booking-card">
@@ -385,6 +386,9 @@ const VendorHome = () => {
                 </p>
                 <p>
                   <strong>Date:</strong> {new Date(booking.date).toDateString()}
+                </p>
+                <p>
+                <strong>Address :</strong> {booking.location}
                 </p>
                 <p>
                   <strong>Description:</strong> {booking.eventDesc}
@@ -418,6 +422,7 @@ const VendorHome = () => {
           ) : (
             <p>No service bookings found.</p>
           )}
+          
         </div>
 
         <h3>Inquiries</h3>
