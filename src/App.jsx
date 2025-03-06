@@ -24,6 +24,12 @@ import ServicePage from './pages/servicePage/servicePage';
 import ServicesC from './pages/servicesC/servicesC';
 import OutfitMain from './pages/outfit-main/outfitMain';
 import Outfit from './pages/outfit-single/outfit';
+import UserBookings from './pages/bookings/bookings';
+import AdminPanel from './pages/adminPanel/adminPage/adminPage';
+import AdminVenue from './pages/adminPanel/adminVenues/adminvenue';
+import AdminService from './pages/adminPanel/adminServices/adminServices';
+import AdminBooking from './pages/adminPanel/adminBooking/adminbooking';
+import AdminLogin from './pages/adminPanel/adminLogin/adminLogin';
 
 import { initialState, reducer } from "./reducer/UserReducer";
 export const UserContext = createContext();
@@ -59,7 +65,12 @@ function App() {
       <Route path='/servicePage/:serviceId' element={<ServicePage/>}/>
       <Route path='/outfits' element={<OutfitMain/>}/>
       <Route path='/outfit/:id' element={<Outfit/>}/>
-
+      <Route path='/bookings' element={<UserBookings/>}/>
+      <Route path='/admin' element={<AdminPanel/>}/>
+      <Route path='/adminVenue' element={<AdminVenue/>}/>
+      <Route path='/adminService' element={<AdminService/>}/>
+      <Route path='/adminBooking' element={<AdminBooking/>}/>
+      <Route path='/adminLogin' element={<AdminLogin/>}/>
     </Routes>
   </Router>
   </UserContext.Provider>

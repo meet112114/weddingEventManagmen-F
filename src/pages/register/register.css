@@ -1,3 +1,8 @@
+.UR-body{
+  min-height: 91vh;
+  padding-top: 100px;
+}
+
 .mainFrame {
     display: flex;
     flex-direction: column;
@@ -8,11 +13,11 @@
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
-    margin-top: 50px;
     border-radius: 20px;
-    background-color: rgb(103, 107, 110);
+    background-color: rgba(55, 83, 126, 0.35);  
+    backdrop-filter: blur(5px);
   }
-  
+
   .register {
     align-items: center;
     display: flex;

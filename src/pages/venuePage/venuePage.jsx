@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useContext } from "react";
 import { useParams } from "react-router-dom";
 import './venuePage.css';
+import { UserContext } from '../../App';
 import { useNavigate } from "react-router-dom";
 
 const VenuePage = () => {
+
+  const  {state , dispatch} = useContext( UserContext);
+  const { user } = state;  // Extract user from state
   const navigate = useNavigate();
   const { id } = useParams();
   const [venue, setVenue] = useState(null);
@@ -18,7 +22,17 @@ const VenuePage = () => {
     contactEmail: "",
     message: ""
   });
+
   const [inquiryStatus, setInquiryStatus] = useState(null);
+
+  const [bookingData, setBookingData] = useState({
+    date: "",
+    eventType: "",
+    eventDesc: "",
+    contactNo:"",
+    name:""
+  });
+  
 
   useEffect(() => {
     const fetchVenue = async () => {
@@ -82,6 +96,58 @@ const VenuePage = () => {
     }
   };
 
+  const handleBookingInputChange = (e) => {
+    setBookingData({ ...bookingData, [e.target.name]: e.target.value });
+  };
+  
+
+  const handleBookNow = async () => {
+    if (!user) {
+      alert("Please log in first to book a venue.");
+      navigate("/login");  // Redirect user to login page
+      return;
+    }
+
+    if (!venue) return;
+  
+    if (!bookingData.date || !bookingData.eventType || !bookingData.eventDesc) {
+      alert("Please fill in all booking details.");
+      return;
+    }
+  
+    try {
+      const response = await fetch("/api/add/booking/venue", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name : bookingData.name,
+          venueId: id,
+          contactNo:bookingData.contactNo,
+          venueName: venue.name,
+          vendorId: venue.vendorId,
+          date: bookingData.date,
+          amount: venue.basePrice ?? 0,
+          location: venue.address,
+          eventType: bookingData.eventType,
+          eventDesc: bookingData.eventDesc
+        }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        alert("Booking successful!");
+        setBookingData({ date: "", eventType: "", eventDesc: "" }); // Reset form
+      } else {
+        alert(`Booking failed: ${data.message}`);
+      }
+    } catch (error) {
+      console.error("Error booking venue:", error);
+      alert("An error occurred while booking.");
+    }
+  };
+  
+
   
   if (loading) return <p className="text-center text-gray-500">Loading...</p>;
 
@@ -126,6 +192,59 @@ const VenuePage = () => {
 
       <h5>Description</h5>
       <p className="VP-venue-description">{venue.venueDecs}</p>
+
+      <div className="VP-booking-container">
+  <h2>Book This Venue</h2>
+  <input
+    type="text"
+    name="name"
+    placeholder="Name "
+    value={bookingData.name}
+    onChange={handleBookingInputChange}
+    required
+  />
+  <input
+    type="text"
+    name="contactNo"
+    placeholder="Contact No"
+    value={bookingData.contactNo}
+    onChange={handleBookingInputChange}
+    required
+  />
+  
+  <input
+    type="date"
+    name="date"
+    value={bookingData.date}
+    onChange={handleBookingInputChange}
+    required
+  />
+
+  <select
+    name="eventType"
+    value={bookingData.eventType}
+    onChange={handleBookingInputChange}
+    required
+  >
+    <option value="">Select Event Type</option>
+    <option value="Wedding">Wedding</option>
+    <option value="Corporate">Corporate Event</option>
+    <option value="Birthday">Birthday Party</option>
+    <option value="Other">Other</option>
+  </select>
+
+ 
+
+  <textarea
+    name="eventDesc"
+    placeholder="Describe your event..."
+    value={bookingData.eventDesc}
+    onChange={handleBookingInputChange}
+    required
+  ></textarea>
+
+  <button onClick={handleBookNow}> Book Now </button>
+</div>
 
       {/* Inquiry Form */}
       <div className="VP-inquiry-container">

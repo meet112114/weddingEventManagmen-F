@@ -3,6 +3,7 @@ import GoogleIcon from "../../assets/images/google-icon.png"
 import { UserContext } from '../../App';
 import './login.css';
 import { useNavigate } from 'react-router-dom';
+import BGIMG from '../../assets/images/bg3.jpg'
 
 const Login = () => {
   const [LoginformData, setLoginformData] = useState({ email: '', password: '' , accType:"client"});
@@ -48,7 +49,11 @@ const Login = () => {
     }
 
   return (
-    <>
+    <div className="UL-body" style={{
+                backgroundImage: `url(${BGIMG})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}>
     <div className='Main-frame'>
     <div className='title'>Login </div>
             <div className='login'>
@@ -74,7 +79,7 @@ const Login = () => {
             </div>
             <a className='a-link' href="/register">I am not a member</a>
         </div>
-    </>
+    </div>
     
   )
 }

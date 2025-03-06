@@ -1,6 +1,8 @@
-import React , { useState} from 'react'
+import React, { useState } from "react";
+
 import "./register.css";
 import { useNavigate } from "react-router-dom";
+import BGIMG from '../../assets/images/bg3.jpg'
 
 const Register = () => {
   const [RegisterformData, setRegisterformData] = useState({
@@ -46,7 +48,11 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="UR-body" style={{
+                backgroundImage: `url(${BGIMG})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}>
       <div className="mainFrame">
         <div className="title">Registration </div>
         <div className="register">

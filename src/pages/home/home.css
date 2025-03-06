@@ -161,3 +161,45 @@
 
 
   
+  .splash-screen {
+    width: 100vw;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    color: #f8f9fa;
+    animation: fadeOut 0.5s ease-in-out forwards; 
+    animation-delay: 3s;
+  }
+
+  .L1{
+    font-style: italic;
+    font-weight: 100;
+    font-family: cursive;
+    font-size: 30px;
+    color:#f8f9fa;
+  }
+  .L2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 60px;
+    color:#f8f9fa;
+  }
+  .L3{
+    font-style: italic;
+    font-weight: 100;
+    font-family: cursive;
+    font-size: 30px;
+    color:#f8f9fa;
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; } /* Fully visible */
+    to { opacity: 0; }   /* Completely invisible */
+  }
+  

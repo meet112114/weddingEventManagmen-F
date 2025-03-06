@@ -3,6 +3,7 @@ import GoogleIcon from "../../assets/images/google-icon.png"
 import { UserContext } from '../../App';
 import './vendorLogin.css';
 import { useNavigate } from 'react-router-dom';
+import BGIMG from '../../assets/images/bg2.jpg'
 
 const VendorLogin = () => {
 
@@ -47,23 +48,27 @@ const VendorLogin = () => {
         }else{
             console.log('error')
         }
-    }
+    } 
 
   return (
-    <>
-    <div className='Main-frame'>
-    <div className='title'>Vendor Login </div>
+    <div className='VL_body' style={{
+        backgroundImage: `url(${BGIMG})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}>
+        
+    <div className='vMain-frame'>
+    <div className='vtitle'>Vendor Login </div>
             <div className='login'>
-                <input className='inputs' type="text" name="email" id="email" placeholder="email" value={LoginformData.email} onChange={handleChange} />
-                <input className='inputs' type="password" name="password" id="password" placeholder="Password" value={LoginformData.password} onChange={handleChange}  />
-                <div className="log">
-                    <input className='log-button' type="submit" name="signin" value="Log in" onClick={LoginSubmit} />
+                <input className='vinputs' type="text" name="email" id="email" placeholder="email" value={LoginformData.email} onChange={handleChange} />
+                <input className='vinputs' type="password" name="password" id="password" placeholder="Password" value={LoginformData.password} onChange={handleChange}  />
+                <div className="vlog">
+                    <input className='vlog-button' type="submit" name="signin" value="Log in" onClick={LoginSubmit} />
                 </div>
             </div>
 
-            <a className='a-link' href="/vendorRegister">I am not a member</a>
         </div>
-    </>
+    </div>
     
   )
 }

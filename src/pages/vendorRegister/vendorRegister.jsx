@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './vendorRegister.css';
 import { useNavigate } from 'react-router-dom';
+import BGIMG from '../../assets/images/bg2.jpg'
 
 const VendorRegister = () => {
   const [formData, setFormData] = useState({
@@ -47,7 +48,11 @@ const VendorRegister = () => {
   };
 
   return (
-    <>
+    <div className='VR-body' style={{
+            backgroundImage: `url(${BGIMG})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}>
       <div className='V-Main-frame'>
         <div className='title'>Vendor Registration</div>
         <form className='login' onSubmit={handleSubmit}>
@@ -121,7 +126,7 @@ const VendorRegister = () => {
 
         <a className='a-link' href='/vendorLogin'>Already a member? Log in</a>
       </div>
-    </>
+    </div>
   );
 };
 
