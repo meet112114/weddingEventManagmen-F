@@ -71,13 +71,7 @@ const ServicesC = () => {
   }, [filters, services]);
 
   return (
-    <div className="servicesCpage"  
-      style={{  
-        backgroundImage: `url(${BGIMG})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        height: '90vh',
-      }}>
+    <div className="ServicesCpage">
 
       {/* Filters Sidebar */}
       <div className="filters">

@@ -30,6 +30,9 @@ import AdminVenue from './pages/adminPanel/adminVenues/adminvenue';
 import AdminService from './pages/adminPanel/adminServices/adminServices';
 import AdminBooking from './pages/adminPanel/adminBooking/adminbooking';
 import AdminLogin from './pages/adminPanel/adminLogin/adminLogin';
+import ServicesCat from './pages/serviceCat/serviceCat';
+import VenuesCat from './pages/venuesCat/venueCat';
+import SearchPage from './pages/searchPage/searchPage';
 
 import { initialState, reducer } from "./reducer/UserReducer";
 export const UserContext = createContext();
@@ -71,6 +74,9 @@ function App() {
       <Route path='/adminService' element={<AdminService/>}/>
       <Route path='/adminBooking' element={<AdminBooking/>}/>
       <Route path='/adminLogin' element={<AdminLogin/>}/>
+      <Route path='/ServicesCat/:serviceType?' element={<ServicesCat/>}/>
+      <Route path='/VenuesCat/:venueType?' element={<VenuesCat/>}/>
+      <Route path='/SearchPage' element={<SearchPage/>}/>
     </Routes>
   </Router>
   </UserContext.Provider>

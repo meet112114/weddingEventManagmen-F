@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './vendorRegister.css';
 import { useNavigate } from 'react-router-dom';
-import BGIMG from '../../assets/images/bg2.jpg'
+import BGIMG from '../../assets/web-images/vendor-bg.jpg';
 
 const VendorRegister = () => {
   const [formData, setFormData] = useState({
@@ -54,7 +54,7 @@ const VendorRegister = () => {
             backgroundRepeat: "no-repeat",
           }}>
       <div className='V-Main-frame'>
-        <div className='title'>Vendor Registration</div>
+        <div className='title-vr'>Vendor Registration</div>
         <form className='login' onSubmit={handleSubmit}>
           <input
             className='V-inputs'
@@ -105,6 +105,9 @@ const VendorRegister = () => {
   <option value="" disabled>Select Location*</option>
   <option value="mumbai">Mumbai</option>
   <option value="pune">Pune</option>
+  <option value="nashik">Nashik</option>
+  <option value="nagpur">Nagpur</option>
+  <option value="indore">Indore</option>
 </select>
           <input
             className='V-inputs'

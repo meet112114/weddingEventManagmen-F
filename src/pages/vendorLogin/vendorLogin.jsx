@@ -3,7 +3,7 @@ import GoogleIcon from "../../assets/images/google-icon.png";
 import { UserContext } from '../../App';
 import './vendorLogin.css';
 import { useNavigate } from 'react-router-dom';
-import BGIMG from '../../assets/images/bg2.jpg';
+import BGIMG from '../../assets/web-images/vendor-bg.jpg';
 
 const VendorLogin = () => {
   const [LoginformData, setLoginformData] = useState({ email: '', password: '', accType: "vendor" });

@@ -1,0 +1,46 @@
+.city-selector-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.city-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.city-card {
+    width: 200px;
+    height: 180px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: 0.3s;
+    padding: 5px;
+}
+
+.city-card:hover {
+    transform: scale(1.05);
+}
+
+.city-card.selected {
+    font-weight: 700;
+    border: none;
+}
+
+.city-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 70px;
+}
+
+.city-card-p1 {
+    font-size: 20px;
+    margin-top: 20px;
+}

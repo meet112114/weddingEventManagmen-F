@@ -147,12 +147,16 @@ const ServiceForm = () => {
 <input type="file" multiple onChange={handleImageChange} />
 
 <select className="service-input" name="serviceType" value={service.venueType} onChange={handleChange} required>
-          <option value="" disabled>Select Service Type</option>
-          <option value="catering">catering</option>
-          <option value="decoration">decoration</option>
-          <option value="entertainment">entertainment</option>
-          <option value="photography">photography</option>
-          <option value="makeup">makeup</option>
+          <option value="" >Select Service Type</option>
+          <option value="food">Food</option>
+          <option value="decoration">Decoration</option>
+          <option value="photography">Photography</option>
+          <option value="makeup">Makeup</option>
+          <option value="mehndi">Mehndi</option>
+          <option value="jewellery">Jewellery</option>
+          <option value="bridalwear">Bridalwear</option>
+          <option value="groomwear">Groomwear</option>
+          <option value="pandit">Pandit</option>
           <option value="others">others</option>
         </select>
 

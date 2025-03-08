@@ -1,4 +1,4 @@
-.servicesCpage {
+.ServicesCpage {
     display: flex;
     flex-direction: row;
   }
@@ -8,7 +8,7 @@
     flex-direction: column;
     width: 15%;
     padding: 20px;
-    background-color: rgba(255, 255, 255, .35);  
+    background-color: rgba(255, 123, 200, 0.35);  
     backdrop-filter: blur(3px);
   }
   
@@ -25,7 +25,7 @@
     overflow-y: auto;
     overflow-x: hidden; 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 60px;
     padding: 20px;
     padding-left: 60px;

@@ -1,7 +1,8 @@
 export const initialState = {
     user: null,       
     vendor: null,     
-    admin: null
+    admin: null,
+    location: null
   };
 
   export const reducer = (state, action) => {
@@ -14,6 +15,8 @@ export const initialState = {
         return { ...state, vendor: action.payload, user: null , admin: null};  // Vendor logged in, user is logged out
       case "ADMIN_LOGIN":
         return{ ...state, admin: action.payload , user: null , vendor: null}
+      case "SET_LOCATION" :
+        return{...state, location: action.payload }
       default:
         return state;
     }

@@ -22,7 +22,7 @@ const AdminLogin = () => {
     if (formData.email === "admin" && formData.password === "admin") {
       dispatch({ type: "ADMIN_LOGIN", payload: true }); // Assuming Redux or Context API
       alert("Login Successful! Redirecting to Admin Panel...");
-      navigate("/admin"); // Redirect to Admin Panel
+      navigate("/adminVenue"); // Redirect to Admin Panel
     } else {
       alert("Wrong Credentials! Access Denied.");
     }
