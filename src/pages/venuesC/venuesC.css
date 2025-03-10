@@ -27,13 +27,18 @@
     flex-direction: column;
   }
  
+  .vvv{
 
-  .venueC-list {
-    width: 80%; /* Adjust as needed */
     height: 1200px;
     max-height: 650px; /* Set a fixed height */
     overflow-y: auto; /* Enables vertical scrolling */
     overflow-x: hidden; 
+    width: 80%; /* Adjust as needed */
+
+    scrollbar-width: none;
+  }
+
+  .venueC-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 60px;

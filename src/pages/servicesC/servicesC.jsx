@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useContext} from 'react';
 import ServiceTypeCard from '../../components/cards/ServiceTypeCard';
 import './servicesC.css';
 import { useNavigate } from 'react-router-dom';
+import CitySelector from "../../components/locationCard/locationCard";
+import { UserContext } from '../../App'; 
 
 const ServicesC = () => {
+  const { state, dispatch } = useContext(UserContext);
+  const { location } = state;
   const navigate = useNavigate();
   const [services, setServices] = useState([]); // All services
   const [filteredServices, setFilteredServices] = useState([]); // Filtered services
@@ -17,7 +21,11 @@ const ServicesC = () => {
       try {
         const res = await fetch('/api/getAllService'); 
         const data = await res.json();
-        const acceptedServices = data.filter(service => service.status === "accepted");
+        let acceptedServices = data.filter(service => service.status === "accepted");
+        if (location) {
+          acceptedServices = acceptedServices.filter(service => service.location.toLowerCase() === location.toLowerCase());
+        }
+        console.log(location)
         setServices(acceptedServices);
         setFilteredServices(data); 
       } catch (error) {
@@ -26,7 +34,7 @@ const ServicesC = () => {
     };
 
     fetchServices();
-  }, []);
+  }, [location]);
 
   // Handle filter changes
   const handleFilterChange = (e) => {
@@ -67,7 +75,7 @@ const ServicesC = () => {
     }
 
     setFilteredServices(updatedServices);
-  }, [filters, services]);
+  }, [filters, services ]);
 
   return (
     <div className="ServicesCpage">
@@ -117,6 +125,8 @@ const ServicesC = () => {
       </div>
 
       {/* Services List */}
+      <div className='sss'>
+        <CitySelector/>
       <div className="servicesC-list">
         {filteredServices.length > 0 ? (
           filteredServices.map((service) => (
@@ -133,6 +143,8 @@ const ServicesC = () => {
           <p>No services found</p>
         )}
       </div>
+      </div>
+
     </div>
   );
 };
