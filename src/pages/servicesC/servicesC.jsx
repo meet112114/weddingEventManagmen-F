@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ServiceTypeCard from '../../components/cards/ServiceTypeCard';
 import './servicesC.css';
-import BGIMG from '../../assets/web-images/bg1.jpg';
 import { useNavigate } from 'react-router-dom';
 
 const ServicesC = () => {

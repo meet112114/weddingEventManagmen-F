@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import VenueCard2 from '../../components/cards/venueCard2/vct';
 import './venueCat.css';
-import BGIMG from '../../assets/web-images/bg1.jpg';
 import { UserContext } from '../../App'; 
 import CitySelector from "../../components/locationCard/locationCard";
 

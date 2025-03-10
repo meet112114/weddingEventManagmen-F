@@ -2,7 +2,6 @@ import React, { useState, useEffect , useContext} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ServiceTypeCard2 from '../../components/cards/serviceTypeCard2/stc';
 import './serviceCat.css';
-import BGIMG from '../../assets/web-images/bg1.jpg';
 import { UserContext } from '../../App'; 
 import CitySelector from "../../components/locationCard/locationCard";
 

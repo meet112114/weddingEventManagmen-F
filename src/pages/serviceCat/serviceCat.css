@@ -32,9 +32,8 @@
   
   /* Service List */
   .servicesCat-list {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     width: 100%;
     max-width: 1200px;

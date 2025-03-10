@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import VenueCard from '../../components/cards/venueCard';
 import './venuesC.css';
-import BGIMG from '../../assets/web-images/bg1.jpg';
 import { useNavigate } from 'react-router-dom';
 
 const VenuesC = () => {

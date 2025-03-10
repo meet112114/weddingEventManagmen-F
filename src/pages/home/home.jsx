@@ -3,9 +3,23 @@ import { useNavigate } from 'react-router-dom';
 import './home.css';
 import VenueCard from '../../components/cards/venueCard';
 import ServiceTypeCard from '../../components/cards/ServiceTypeCard';
-import BGIMG from '../../assets/images/bg4.jpg'
-import Img2 from '../../assets/web-images/22.png';
-import Img5 from '../../assets/web-images/cat1.png';
+import BGIMG from '../../assets/web-images/2.png'
+// import Img2 from '../../assets/web-images/22.png';
+
+ import Img2 from '../../assets/web-images/homeimg.png';
+
+ import Cat1  from '../../assets/ss 1/veneues.png'
+ import Cat2 from '../../assets/ss 1/photography.png'
+ import Cat3 from '../../assets/ss 1/makeup.png'
+ import Cat4 from '../../assets/ss 1/decoration.png'
+ import Cat5  from '../../assets/ss 1/bridal.png'
+ import Cat6 from '../../assets/ss 1/food.png'
+ import Cat7 from '../../assets/ss 1/jewel.png'
+ import Cat8 from '../../assets/ss 1/mehndi.png'
+ import Cat9 from '../../assets/ss 1/pandit.png'
+ import Cat10 from '../../assets/ss 1/grrom.png'
+
+
 import Img4 from '../../assets/web-images/ven-img.png';
 import CitySelector from "../../components/locationCard/locationCard";
 import { UserContext } from '../../App'; 
@@ -22,7 +36,7 @@ const Home = () => {
     // Hide splash screen after 5 seconds
     const splashTimeout = setTimeout(() => {
       setShowSplash(false);
-    }, 1000);
+    }, 3000);
 
     return () => clearTimeout(splashTimeout);
   }, []);
@@ -108,11 +122,7 @@ const handleOutfitClick = (outfitId) => {
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}>
-        <div>
-        <h2 className='L1'>Welcome to </h2>
-        <h1 className='L2'>Wed Me Good</h1>
-        <p className='L3'>Simple Solutions For Special Days</p>
-        </div>
+       
       </div>
     );
   }
@@ -157,21 +167,91 @@ const handleOutfitClick = (outfitId) => {
 
           <h1 className='home-categories-sec-title'>Categories </h1>
       <div className='home-categories-sec'>
+
       <div className='home-categories-sec-left'>
-        <img src={Img5} className='home-categories-sec-img' onClick={() => handleNavigate('/venueClient')} />
-        <img src={Img2} className='home-categories-sec-img' onClick={() => handleNavigate('/ServicesCat/makeup')} />
-        <img src={Img2} className='home-categories-sec-img'  onClick={() => handleNavigate('/ServicesCat/bridalwear')}/>
-        <img src={Img2} className='home-categories-sec-img'  onClick={() => handleNavigate('/ServicesCat/groomwear')}/>
-        <img src={Img2} className='home-categories-sec-img'  onClick={() => handleNavigate('/ServicesCat/jewellery')}/>
-      </div>
-      <div className='home-categories-sec-right'>
-        <img src={Img2} className='home-categories-sec-img'  onClick={() => handleNavigate('/ServicesCat/photography')} />
-        <img src={Img2} className='home-categories-sec-img'  onClick={() => handleNavigate('/ServicesCat/decoration')}/>
-        <img src={Img2} className='home-categories-sec-img'  onClick={() => handleNavigate('/ServicesCat/mehndi')}/>
-        <img src={Img2} className='home-categories-sec-img' onClick={() => handleNavigate('/ServicesCat/pandit')} />
-        <img src={Img2} className='home-categories-sec-img'  onClick={() => handleNavigate('/ServicesCat/food')} />
-      </div>
-    </div>
+  <div className='hcs-div' style={{
+    backgroundImage: `url(${Cat1})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }} onClick={() => handleNavigate('/venueClient')}>
+    <p className='hcs-div-title'>Venues</p>
+  </div>
+
+  <div className='hcs-div' style={{
+    backgroundImage: `url(${Cat3})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }} onClick={() => handleNavigate('/ServicesCat/makeup')}>
+    <p className='hcs-div-title'>Makep</p>
+  </div>
+
+  <div className='hcs-div' style={{
+    backgroundImage: `url(${Cat5})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }} onClick={() => handleNavigate('/ServicesCat/bridalwear')}>
+    <p className='hcs-div-title'>Bridal Wear</p>
+  </div>
+
+  <div className='hcs-div' style={{
+    backgroundImage: `url(${Cat10})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }} onClick={() => handleNavigate('/ServicesCat/groomwear')}>
+    <p className='hcs-div-title'>Groom Wear</p>
+  </div>
+
+  <div className='hcs-div' style={{
+    backgroundImage: `url(${Cat7})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }} onClick={() => handleNavigate('/ServicesCat/jewellery')}>
+    <p className='hcs-div-title'>Jewellery</p>
+  </div>
+</div>
+
+<div className='home-categories-sec-right'>
+  <div className='hcs-div' style={{
+    backgroundImage: `url(${Cat2})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }} onClick={() => handleNavigate('/ServicesCat/photography')}>
+    <p className='hcs-div-title'>Photography</p>
+  </div>
+
+  <div className='hcs-div' style={{
+    backgroundImage: `url(${Cat4})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }} onClick={() => handleNavigate('/ServicesCat/decoration')}>
+    <p className='hcs-div-title'>Decoration</p>
+  </div>
+
+  <div className='hcs-div' style={{
+    backgroundImage: `url(${Cat8})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }} onClick={() => handleNavigate('/ServicesCat/mehndi')}>
+    <p className='hcs-div-title'>Mehndi</p>
+  </div>
+
+  <div className='hcs-div' style={{
+    backgroundImage: `url(${Cat9})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }} onClick={() => handleNavigate('/ServicesCat/pandit')}>
+    <p className='hcs-div-title'>Pandit</p>
+  </div>
+
+  <div className='hcs-div' style={{
+    backgroundImage: `url(${Cat6})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  }} onClick={() => handleNavigate('/ServicesCat/food')}>
+    <p className='hcs-div-title'>Food</p>
+  </div>
+</div>
+</div>
 
       {/* Services Section */}
       <div className='home-services-section'>

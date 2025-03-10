@@ -4,7 +4,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
 import "./navbar.css";
-import BgIMG from '../../assets/web-images/search2.png'
+import BgIMG from '../../assets/web-images/search2.png';
+import Logo from '../../assets/ss 1/1.png'
 
 const cityOptions = ["mumbai", "pune", "nashik", "nagpur", "indore"];
 
@@ -296,6 +297,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbarclass">
             <div className="container-fluid">
+                <img className="nav-logo" src={Logo}></img>
                 <a className="navbar-brand" style={{ fontFamily: "monospace", cursor: "pointer" }} onClick={handleAdminLogin}>
                     Wed<strong>me</strong>Good
                 </a>
